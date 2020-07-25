@@ -1,0 +1,82 @@
+﻿@model EmployeeManagementWeb.Models.ViewModel.EmployeesVM
+@{
+    var title = "Create Employee";
+}
+
+<form method="post" asp-action="Upsert">
+
+    <div class="row px-2 mx-2 backgroundWhite border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @if (Model.Employee.Id != 0)
+        {
+            <input type="hidden" asp-for="Employee.Id" />
+            title = "Edit Employee";
+        }
+        <div class="col-12 p-3">
+            <h2 class="text-primary">@title</h2>
+        </div>
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    Institute
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m => m.Employee.InstituteId,
+                   Model.InstituteList, "-Please select a institute-", new { @class = "form-control" })
+                    <span asp-validation-for="Employee.InstituteId" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Employee.Name"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Employee.Name" class="form-control" />
+                    <span asp-validation-for="Employee.Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Employee.Position"></label>
+                </div>
+                <div class="col-8">
+                    <select asp-for="Employee.Position"
+                            asp-items="Html.GetEnumSelectList<Employee.PositionType>()"
+                            class="form-control"></select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Employee.Age"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Employee.Age" class="form-control" />
+                    <span asp-validation-for="Employee.Age" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Employee.Experience"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Employee.Experience" class="form-control" />
+                    <span asp-validation-for="Employee.Experience" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4 offset-4">
+                    <button type="submit" class="btn btn-primary form-control">
+                        @(Model.Employee.Id != 0 ? "Update" : "Create")
+                    </button>
+                </div>
+                <div class="col-4">
+                    <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</form>

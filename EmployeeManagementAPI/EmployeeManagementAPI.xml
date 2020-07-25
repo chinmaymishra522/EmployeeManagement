@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EmployeeManagementAPI</name>
+    </assembly>
+    <members>
+        <member name="M:EmployeeManagementAPI.Controllers.EmployeesController.GetEmployees">
+            <summary>
+            Get list of employees.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmployeeManagementAPI.Controllers.EmployeesController.GetEmployee(System.Int32)">
+            <summary>
+            Get individual employee
+            </summary>
+            <param name="employeeId"> The id of the employee </param>
+            <returns></returns>
+        </member>
+        <member name="M:EmployeeManagementAPI.Controllers.InstitutesController.GetInstitutes">
+            <summary>
+            Get list of institutes.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EmployeeManagementAPI.Controllers.InstitutesController.GetInstitute(System.Int32)">
+            <summary>
+            Get individual institute
+            </summary>
+            <param name="instituteId"> The Id of the institute </param>
+            <returns></returns>
+        </member>
+        <member name="M:EmployeeManagementAPI.Controllers.InstitutesV2Contoller.GetInstitutes">
+            <summary>
+            Get list of institutes.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
