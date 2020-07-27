@@ -68,7 +68,7 @@ namespace EmployeeManagementWeb.Controllers
             User objUser = await _accRepo.LoginAsync(SD.AccountAPIPath + "authenticate/", obj);
             if (objUser.Token == null)
             {
-                TempData["alert"] = "please enter valid user-id and password";
+                TempData["alert"] = "please enter valid user-name and password";
                 return View();
             }
 
@@ -97,7 +97,7 @@ namespace EmployeeManagementWeb.Controllers
             bool result = await _accRepo.RegisterAsync(SD.AccountAPIPath + "register/", obj);
             if (result == false)
             {
-                TempData["alert"] = "Please fill the username and password";
+                TempData["alert"] = "Please fill unique username and password";
                 return View();
             }
             TempData["alert"] = "Registeration Successful";
