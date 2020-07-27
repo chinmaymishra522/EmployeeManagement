@@ -65,11 +65,6 @@ namespace EmployeeManagementWeb.Controllers
                     }
                     obj.Picture = p1;
                 }
-                else
-                {
-                    var objFromDb = await _insRepo.GetAsync(SD.InstituteAPIPath, obj.Id, HttpContext.Session.GetString("JWToken"));
-                    obj.Picture = objFromDb.Picture;
-                }
                 if (obj.Id == 0)
                 {
                     await _insRepo.CreateAsync(SD.InstituteAPIPath, obj, HttpContext.Session.GetString("JWToken"));
